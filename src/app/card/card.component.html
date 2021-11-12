@@ -1,9 +1,10 @@
-<div class="card" style="width: 18rem;" *ngFor="let product of products">
+<div class="card mb-3 border border-dark shadow p-3 mb-5 bg-body" style="width: 17rem;">
     <img src={{product.img}} class="card-img-top" alt="...">
     <div class="card-body">
-        <h5 class="card-title">{{product.title}}</h5>
-        <p class="card-text">{{product.price}}€</p>
-        <p class="card-text">{{product.description}}</p>
-        <a href="#" class="btn btn-primary">Show Detail</a>
+        <h5 class="card-title">{{ product.title }}!</h5>
+        <p class="card-price">{{ product.price }}€</p>
+        <div class="d-flex direction-row justify-content-end">
+            <button (click)="select(product)" class="btn btn-warning btn-sn rounded-pill">Show Detail</button>
+        </div>
     </div>
 </div>

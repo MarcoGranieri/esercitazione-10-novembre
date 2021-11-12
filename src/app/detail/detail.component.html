@@ -1,8 +1,28 @@
-<div class="card" style="width: 50rem;">
-    <img src="..." class="card-img-left" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+<div class="container-fluid py-5 ml-5">
+    <h3>Dettagli prodotto</h3>
+    <div class="card d-flex flex-column justify-content-center border border-dark shadow p-3 mb-5 bg-body">
+        <div class="d-flex flex-row justify-content-around">
+            <div class="pic pt-5">
+                <img src={{product.img}} style="width: 180px;" class="card-img-top" alt="...">
+            </div>
+            <div class="general-details">
+                <h1 class="card-title">{{ product.title }}!</h1>
+                <p class="card-exitYear">Anno di uscita: {{ product.exitYear}}</p>
+                <p class="card-productHeight">Altezza: {{ product.productHeight}}cm</p>
+                <p class="card-productWeight">Peso: {{ product.productWeight}}g</p>
+                <p class="card-itemsProduced">Pezzi prodotti: {{ product.itemsProduced}} pcs</p>
+            </div>
+        </div>
+        <div class="description p-3 pt-5">
+            <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. When an unknown printer took a galley of type and scrambled it to make a type specimen
+                book. It has survived not only five centuries, but also the leap into electronic typesetting. Remaining essentially unchanged. It was popularised in the 1960s simply dummy text printing standard dummy text. Lorem Ipsum is simply dummy
+                text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not
+                only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+        </div>
+        <h5 class="p-3">Prezzo: {{ product.price }}€</h5>
+        <div class="d-flex direction-row justify-content-between">
+            <button (click)="buyProduct(product)" class="btn btn-danger btn-sm rounded-pill p-1 pl-4 pr-4 m-4" style="color:black;">Acquista</button>
+            <button (click)="deselect(product)" class="btn btn-danger btn-sm rounded-pill p-1 pl-4 pr-4 m-4" style="color:black;">Chiudi</button>
+        </div>
     </div>
 </div>

@@ -1,7 +1,15 @@
-<h1>Develhope Shop</h1>
-<div class="container d-flex justify-content-around align-items-center">
-    <app-list></app-list>
-    <img src="https://www.develhope.co/_nuxt/img/cav_black.9dc2b13.svg" alt="">
+<div class="d-flex justify-content-between" style="padding: 30px;">
+    <h1>Develhope Shop</h1>
+    <button class="btn btn-primary btn-sn rounded-pill">Carrello ({{chart}})</button>
 </div>
-
-<!-- <app-detail></app-detail> -->
+<div class="container d-flex justify-content-between align-items-center">
+    <app-list (selected)="selectProduct($event)" [products]="products"></app-list>
+    <div *ngIf="viewDetails === false" class="d-flex flex-column align-items-center">
+        <p style="font-size:1.5rem;">Benvenuti nello shop di</p>
+        <img src="https://www.develhope.co/_nuxt/img/cav_black.9dc2b13.svg" style="width:40rem" alt="">
+        <p class="mt-5">Clicca sui dettagli del prodotto per visualizzare tutte le informazioni</p>
+    </div>
+    <div *ngIf="viewDetails">
+        <app-detail (buy)="addToChart($event)" (delete)="deselectProduct($event)" [product]="selectedProduct"></app-detail>
+    </div>
+</div>

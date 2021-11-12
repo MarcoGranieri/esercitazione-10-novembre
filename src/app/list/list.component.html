@@ -1,1 +1,1 @@
-<app-card></app-card>
+<app-card (selected)="select($event)" [product]="product" *ngFor="let product of products"></app-card>

@@ -1,5 +1,5 @@
 import { Product } from './../product';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-list',
@@ -8,11 +8,19 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  @Input() product! : Product;
+  @Output() selected = new EventEmitter<Product>();
+  @Input() products : Product[] | undefined;
+
+  selectedProduct! : Product;
+
+
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  select(product: Product) {
+    this.selected.emit(product);
+  }
 }

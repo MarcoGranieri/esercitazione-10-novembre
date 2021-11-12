@@ -1,4 +1,4 @@
-import { Product } from '../product';
+import { Product } from './../product';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -44,10 +44,29 @@ export class HomepageComponent implements OnInit {
     }
   ];
 
+  selectedProduct! : Product;
+  viewDetails: boolean = false;
+  chart : number = 0;
+
 
   constructor() { }
 
   ngOnInit(): void {
+
+  }
+
+  selectProduct(product: Product ) : void{
+    this.viewDetails = true;
+    this.selectedProduct = product;
+  }
+
+  deselectProduct(product:Product) : void{
+    this.viewDetails = false;
+  }
+
+  addToChart(product:Product) : void {
+    this.chart++;
+    this.selectedProduct = product;
   }
 
 }
